@@ -12,12 +12,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ToolboxComponent } from './components/designer/toolbox/toolbox.component';
 import { FormDesignerComponent } from './components/designer/form-designer/form-designer.component';
 import { DndModule } from 'ng2-dnd';
+import { ControlDesignerComponent } from './components/designer/control-designer/control-designer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolboxComponent,
-    FormDesignerComponent
+    FormDesignerComponent,
+    ControlDesignerComponent
   ],
   imports: [
     BrowserModule,

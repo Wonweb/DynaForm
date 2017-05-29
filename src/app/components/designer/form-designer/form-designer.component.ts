@@ -16,6 +16,8 @@ export class FormDesignerComponent implements OnInit {
 
   public addControl($event) {
     console.log($event);
+
+    
   }
 
 }
