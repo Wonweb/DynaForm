@@ -10,16 +10,20 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ToolboxComponent } from './components/designer/toolbox/toolbox.component';
+import { FormDesignerComponent } from './components/designer/form-designer/form-designer.component';
+import { DndModule } from 'ng2-dnd';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolboxComponent
+    ToolboxComponent,
+    FormDesignerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    DndModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features

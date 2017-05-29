@@ -1,15 +1,4 @@
-<div class="wrapper" [ngClass]="{ 'toggled' : !menuCollapsed }">
-  <app-toolbox (menuCollapsed)="setMenuState($event)"></app-toolbox>
-  <h1>
-  </h1>
-
-  <div id="page-content-wrapper">
-    <div id="container-fluid">
-      <ul>
-        <li class="text" *ngFor="let item of items | async">
-          {{ item.$key }} : {{ item.Properties[0] | json }}
-        </li>
-      </ul>
-    </div>
-  </div>
+<div class="container-fluid">
+  <app-toolbox (menuCollapsed)="onMenuCollapsed($event)"></app-toolbox>
+  <app-form-designer [isMenuCollapsed]="isMenuCollapsed"></app-form-designer>
 </div>

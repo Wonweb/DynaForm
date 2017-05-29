@@ -1,5 +1,4 @@
-import { FirebaseListObservable } from 'angularfire2/database';
-import { DesignerFirebaseDBService } from './services/designer/designer-firebase-db.service';
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,16 +8,9 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  items: FirebaseListObservable<any[]>;
-  menuCollapsed = true;
+  isMenuCollapsed = false;
 
-  title = 'app works!';
-
-  constructor(db: DesignerFirebaseDBService) {
-    this.items = db.getList('/Control');
-  }
-
-  setMenuState(state: boolean){
-    this.menuCollapsed = state;
+  public onMenuCollapsed($event) {
+    this.isMenuCollapsed = $event;
   }
 }
