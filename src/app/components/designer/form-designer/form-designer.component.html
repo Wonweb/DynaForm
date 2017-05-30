@@ -1,3 +1,7 @@
 <div class="main-container" [ngClass]="{ 'collapsed': isMenuCollapsed }">
-    <div dnd-droppable (onDropSuccess)="addControl($event)">&nbsp;</div>
+    <div dnd-droppable (onDropSuccess)="addControl($event)">
+        <div *ngFor="let control of controls">
+            <app-control-designer [control]="control" (remControl)="removeControl($event)"></app-control-designer>
+        </div>
+    </div>
 </div>
