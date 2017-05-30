@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class FormDesignerComponent implements OnInit {
   @Input() isMenuCollapsed: false;
-  controls = Array<any>();  
+  controls = Array<any>();
 
   constructor() { }
 

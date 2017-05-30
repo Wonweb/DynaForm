@@ -1,9 +1,10 @@
 <div id="sidebar-wrapper" [ngClass]="{ 'collapsed' : isMenuCollapsed }">
+
   <ul class="sidebar-nav" [ngClass]="{ 'collapsed' : isMenuCollapsed }">
     <li class="sidebar-brand">
       <a href="#">Controls</a>
     </li>
-    <li *ngFor="let control of controls | async" dnd-draggable [dragData]="control">
+    <li *ngFor="let control of controls | async" dnd-draggable [dragData]="{ control: control, controlProperties: controlProperties }">
       <a href="#">{{ control.$key }}</a>
     </li>
   </ul>

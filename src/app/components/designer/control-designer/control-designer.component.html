@@ -1,6 +1,6 @@
 <div dnd-droppable (onDropSuccess)="addControl($event)">
-  {{ control.dragData.$key }}
-  <i class="fa fa-times pull-right" aria-hidden="true" (click)="removeControl(control)"></i>
+  {{ control.dragData.control.$key }}
+  <i class="fa fa-times pull-right" (click)="removeControl(control)"></i>
   <div *ngFor="let childControl of childControls">
     <app-control-designer [control]="childControl"></app-control-designer>
   </div>

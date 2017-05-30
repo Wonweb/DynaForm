@@ -24,4 +24,12 @@ export class ControlDesignerComponent implements OnInit {
     this.remControl.emit(this.control);
   }
 
+  controlHasProperty(propertyName: string) {
+    const propertyIndex = this.control.dragData.controlProperties.filter(function (item, index) {
+      return item.$value === propertyName;
+    })[0].$key;
+
+    return this.control.dragData.control.Properties[propertyIndex];
+  }
+
 }
