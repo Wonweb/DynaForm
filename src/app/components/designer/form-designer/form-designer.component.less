@@ -1,23 +1,22 @@
 .main-container {
-    left: 250px;
-    position: absolute;
-    padding: 50px 10px;
-    min-height: 100vh;    
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    padding: 20px 10px;
+    min-height: calc(~'100vh - 45px');    
     display: flex;
-}
-
-.main-container > div{
-    min-width: calc(~"100vw - 270px");
-}
-
-.main-container.collapsed {
-    left: 0px;
+    margin: 0 15px;
+    flex-direction: column;
 }
 
 .dnd-drag-over{
     border: lightblue dashed 2px;
+}
+
+.menu-launcher{
+    padding: 10px 0;
+    cursor: pointer;
+    width: 40px;
+    margin: 0 15px;
+}
+
+.main-container > div {
+    flex-grow: 1;
 }

@@ -1,7 +1,12 @@
-<div class="main-container" [ngClass]="{ 'collapsed': isMenuCollapsed }">
+<div class="menu-launcher" (click)="toggleMenu()">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+<div class="main-container">
     <div dnd-droppable (onDropSuccess)="addControl($event)">
-        <div *ngFor="let control of controls">
-            <app-control-designer [control]="control" (remControl)="removeControl($event)"></app-control-designer>
-        </div>
+        <form class="form-horizontal">
+            <div *ngFor="let control of controls">
+                <app-control-designer [control]="control" (remControl)="removeControl($event)"></app-control-designer>
+            </div>
+        </form>
     </div>
 </div>

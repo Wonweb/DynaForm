@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-form-designer',
@@ -7,7 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class FormDesignerComponent implements OnInit {
-  @Input() isMenuCollapsed: false;
+  @Output() menuCollapsed = new EventEmitter<boolean>();
+  isMenuCollapsed = false;
   controls = Array<any>();
 
   constructor() { }
@@ -21,7 +22,12 @@ export class FormDesignerComponent implements OnInit {
   }
 
   removeControl(remControl) {
-    let index = this.controls.indexOf(remControl);
+    const index = this.controls.indexOf(remControl);
     this.controls.splice(index, 1);
+  }
+
+  toggleMenu(): void {
+    this.isMenuCollapsed = !this.isMenuCollapsed;
+    this.menuCollapsed.emit(this.isMenuCollapsed);
   }
 }

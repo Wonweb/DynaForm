@@ -8,8 +8,6 @@ import { DesignerFirebaseDBService } from '../../../services/designer/designer-f
   styleUrls: ['./toolbox.component.less']
 })
 export class ToolboxComponent implements OnInit {
-  @Output() menuCollapsed = new EventEmitter<boolean>();
-  isMenuCollapsed = false;
   controls: FirebaseListObservable<any[]>;
   controlProperties: Array<any>;
 
@@ -20,12 +18,5 @@ export class ToolboxComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
-
-  toggleMenu(): void {
-    this.isMenuCollapsed = !this.isMenuCollapsed;
-    this.menuCollapsed.emit(this.isMenuCollapsed);
-  }
-
+  ngOnInit() { }
 }

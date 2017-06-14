@@ -1,7 +1,176 @@
-<div dnd-droppable (onDropSuccess)="addControl($event)">
+<div [ngSwitch]="control.dragData.control.$key">
+  <i class="fa fa-times pull-right" (click)="removeControl(control)"></i>
+  <ng-container *ngSwitchCase="'Button'">
+    <div class="form-group">
+      <button type="button" class="btn btn-primary">[Button]</button>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="
+  control.dragData.control.$key === 'TextBox' 
+  || control.dragData.control.$key === 'Password' 
+  || control.dragData.control.$key === 'DateTime' 
+  || control.dragData.control.$key === 'Date' 
+  || control.dragData.control.$key === 'Month' 
+  || control.dragData.control.$key === 'Time' 
+  || control.dragData.control.$key === 'Week' 
+  || control.dragData.control.$key === 'Number' 
+  || control.dragData.control.$key === 'Email' 
+  || control.dragData.control.$key === 'Url' 
+  || control.dragData.control.$key === 'Search' 
+  || control.dragData.control.$key === 'Phone' 
+  || control.dragData.control.$key === 'Color'
+    ? control.dragData.control.$key : '' 
+  ">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="tb">[{{control.dragData.control.$key}}]</label>
+      <div class="col-sm-10">
+        <input [type]="control.dragData.control.HtmlType" class="form-control" id="tb">
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'TextArea'">
+    <div class="form-group">
+      <label for="ta">[TextArea]</label>
+      <textarea class="form-control" rows="5" id="ta"></textarea>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'CheckBox'">
+    <div class="form-group">
+      <div class="checkbox-inline">
+        <label><input type="checkbox" value="">[Option 1]</label>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Radio'">
+    <div class="form-group">
+      <div class="radio-inline">
+        <label><input type="radio" name="opt">[Option 1]</label>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Image'">
+    <div class="form-group">
+      <img [src]="'no-image.jpg'" class="img-thumbnail" alt="no-image" width="304" height="236">
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Title'">
+    <div class="form-group">
+      <div class="well">[Title]</div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Badge'">
+    <a href="#">[Badge 1]<span class="badge">[Content]</span></a>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Label'">
+    <div class="form-group">
+      <span class="label label-default">[Label]</span>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'ProgressBar'">
+    <div class="form-group">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+          <span class="sr-only">70% Complete</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Pagination'">
+    <div class="form-group">
+      <ul class="pagination">
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+      </ul>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Pager'">
+    <div class="form-group">
+      <ul class="pager">
+        <li><a href="#">Previous</a></li>
+        <li><a href="#">Next</a></li>
+      </ul>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'DropDown'">
+    <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">[Dropdown]
+      <span class="caret"></span>
+    </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">[Item 1]</a></li>
+          <li><a href="#">[Item 2]</a></li>
+          <li class="divider"></li>
+          <li><a href="#">[Item 3]</a></li>
+        </ul>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Section'">
+    <div class="form-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">[Section Heading]</div>
+        <div class="panel-body">[Section Content]</div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Collapse'">
+    <div class="form-group">
+      <button data-toggle="collapse" data-target="#collapse">Collapsible</button>
+      <div id="collapse" class="collapse">
+        Lorem ipsum dolor text....
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Menu'">
+    <div class="form-group">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Submenu 1-1</a></li>
+            <li><a href="#">Submenu 1-2</a></li>
+            <li><a href="#">Submenu 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Menu 2</a></li>
+        <li><a href="#">Menu 3</a></li>
+      </ul>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'NavBar'">
+    <div class="form-group">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'FileUpload'">
+    <div class="form-group">
+      <label for="inputFile">Select file</label>
+      <input type="file" class="form-control-file" id="inputFile" aria-describedby="fileHelp">
+      <small id="fileHelp" class="form-text text-muted">Max file size is 5mb.</small>
+    </div>
+  </ng-container>
+</div>
+
+<!--div dnd-droppable (onDropSuccess)="addControl($event)">
   {{ control.dragData.control.$key }}
   <i class="fa fa-times pull-right" (click)="removeControl(control)"></i>
   <div *ngFor="let childControl of childControls">
     <app-control-designer [control]="childControl"></app-control-designer>
   </div>
-</div>
+</div-->

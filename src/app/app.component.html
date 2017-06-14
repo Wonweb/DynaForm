@@ -1,4 +1,4 @@
-<div class="container-fluid">
-  <app-toolbox (menuCollapsed)="onMenuCollapsed($event)"></app-toolbox>
-  <app-form-designer [isMenuCollapsed]="isMenuCollapsed"></app-form-designer>
+<div class="flex-container">
+  <app-toolbox class="sidebar-container" [ngClass]="{ 'collapsed': isMenuCollapsed }"></app-toolbox>
+  <app-form-designer class="main-container" (menuCollapsed)="onMenuCollapsed($event)"></app-form-designer>
 </div>
